@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>課題タスク</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="penta-192.png">
+<link rel="apple-touch-icon" href="penta-192.png">
+<meta name="theme-color" content="#ff9e6b">
+<script>
+  // ホーム画面のアイコンから開いたときは、すぐに課題タスク（Google Apps Script）へ移動する
+  var TASK_URL = 'https://script.google.com/macros/s/AKfycbxw9LXHCnUozNOlMi0iDS55IiVHN3Mxqa5Mah2fgetYtm2OKk66Y38xDP_EG_uyn8QC/exec';
+  if (/[?&]app=1/.test(location.search)) location.replace(TASK_URL);
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function () {});
+</script>
+<style>
+  :root { --bg:#fff8ef; --ink:#3b3446; --sub:#8a8297; --accent:#ff8a5c; --card:#fff; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#1f1d26; --ink:#f1ecf7; --sub:#a59fb3; --card:#2a2734; } }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:"Hiragino Maru Gothic ProN","M PLUS Rounded 1c","Yu Gothic UI",sans-serif; }
+  .wrap { max-width:440px; margin:0 auto; padding:32px 16px; text-align:center; }
+  img { width:128px; height:128px; border-radius:30px; box-shadow:0 6px 18px rgba(120,80,40,.18); }
+  h1 { font-size:22px; margin:18px 0 6px; }
+  p { color:var(--sub); line-height:1.7; margin:6px 0; }
+  .btn { display:inline-block; margin-top:18px; background:var(--accent); color:#fff; font-weight:700; text-decoration:none; padding:12px 22px; border-radius:14px; }
+  ol { text-align:left; background:var(--card); border-radius:16px; padding:16px 16px 16px 36px; line-height:1.8; margin-top:22px; box-shadow:0 4px 14px rgba(120,80,40,.08); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <img src="penta-512.png" alt="ぺんた">
+  <h1>ぺんたの課題タスク</h1>
+  <p>Moodleの締切と自分のタスクを、ぺんたといっしょに片づけよう。</p>
+  <a class="btn" href="?app=1">タスクを開く</a>
+  <ol>
+    <li>Chrome の右上「︙」をタップ</li>
+    <li>「<b>アプリをインストール</b>」または「<b>ホーム画面に追加</b>」</li>
+    <li>ホーム画面のぺんたをタップすると、すぐタスクが開きます</li>
+  </ol>
+</div>
+</body>
+</html>
